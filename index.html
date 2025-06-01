@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мини-CRM Контакты</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Управление контактами</h1>
+            <button id="add-contact-btn" class="btn btn-primary">Добавить контакт</button>
+        </header>
+
+        <div class="filter-bar">
+            <input type="text" id="search-input" placeholder="Поиск по имени или email">
+            <div class="filter-tags" id="tag-filters"></div>
+        </div>
+
+        <div class="contacts-grid" id="contacts-container">
+            <!-- Контакты будут загружены здесь -->
+        </div>
+    </div>
+
+    <!-- Модальное окно для добавления/редактирования -->
+    <div class="modal" id="contact-modal">
+        <div class="modal-content">
+            <h2 id="modal-title">Добавить контакт</h2>
+            <form id="contact-form">
+                <input type="hidden" id="contact-id">
+                
+                <div class="form-group">
+                    <label for="name">Имя *</label>
+                    <input type="text" id="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label>Теги</label>
+                    <div class="tag-selector" id="tag-selector">
+                        <div class="tag" data-tag="Клиент">Клиент</div>
+                        <div class="tag" data-tag="Партнер">Партнер</div>
+                        <div class="tag" data-tag="Коллега">Коллега</div>
+                        <div class="tag" data-tag="Друг">Друг</div>
+                        <div class="tag" data-tag="VIP">VIP</div>
+                    </div>
+                    <input type="text" id="tags" placeholder="Добавьте теги через запятую">
+                </div>
+                
+                <div class="form-group">
+                    <label for="comment">Комментарий</label>
+                    <textarea id="comment" rows="3"></textarea>
+                </div>
+                
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <button type="button" class="btn" id="cancel-btn">Отмена</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
